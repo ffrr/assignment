@@ -77,7 +77,7 @@ const populate = (ids, parentName = null, resolve) => {
 
 // wrap-up
 const done = () => {
-  jsonfile.writeFileSync('full.json', memo);
+  jsonfile.writeFileSync('brull.json', memo);
 };
 
 // kickoff
@@ -94,4 +94,5 @@ populate([rootId], null, (nodes) => {
 
 
 //TODO: add error handling and
+//TODO: streaming?
 //TODO: add stdout progress report
