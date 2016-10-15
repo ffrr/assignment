@@ -6,7 +6,8 @@ const Promise = require('bluebird'),
   _ = require('lodash');
 
 const baseUrl = 'http://imagenet.stanford.edu/python/tree.py/SubtreeXML',
-  urlFromId = (id) => `${baseUrl}?rootid=${id}`;
+  urlFromId = (id) => `${baseUrl}?rootid=${id}`,
+  rootId = '82127';
 
 // helpers
 const
@@ -79,9 +80,8 @@ const done = () => {
   jsonfile.writeFileSync('full.json', memo);
 };
 
-
 // kickoff
-populate(['82127'], null, (nodes) => {
+populate([rootId], null, (nodes) => {
   nodes = _.map(nodes, (node) => _.pick(node, 'name', 'size'));
   memo = memo.concat(nodes);
   nodesProcessed += nodes.length;
