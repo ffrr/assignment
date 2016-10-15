@@ -15,13 +15,9 @@ const
   nameOf = (node) => node.$.words,
   sizeOf = (node) => node.$.subtree_size,
   childrenOf = (parentName, node) => {
-    if(node.synset) {
-      return _.map(node.synset, child => {
-        return _.assign(nodeAsObject(parentName, child), { id: idOf(child) });
-      });
-    } else {
-      return [];
-    }
+    return _.map(node.synset || [], child => {
+      return _.assign(nodeAsObject(parentName, child), { id: idOf(child) });
+    });
   },
   nodeAsObject = (parentName, node) => {
     let prefix = parentName ? `${parentName} > `:'',
@@ -54,7 +50,7 @@ let memo = [], nodesProcessed = 0;
 // dataset processing
 const processUrl = (url, parentName, resolve) => {
   fetchUrl(url)
-    .then(([meta, body]) => {
+    .then(([, body]) => {
       resourcesFreed();
       return parse(body);
     })
@@ -77,7 +73,7 @@ const populate = (ids, parentName = null, resolve) => {
 
 // wrap-up
 const done = () => {
-  jsonfile.writeFileSync('brull.json', memo);
+  jsonfile.writeFileSync('full.json', memo);
 };
 
 // kickoff
