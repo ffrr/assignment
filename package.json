@@ -1,24 +1,34 @@
 {
-  "name": "operam-zadanie",
+  "name": "assignment",
   "version": "0.0.1",
-  "description": "A solution looking for a problem.",
-  "main": "app.js",
+  "description": "",
+  "main": "scrape.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "dependencies": {
+    "config": "^1.21.0",
+    "bluebird": "^3.4.6",
+    "fetch": "^1.1.0",
+    "lodash": "^4.16.4",
+    "csv-stringify": "^1.0.4",
+    "jsonfile": "^2.4.0",
+    "pg-copy-streams": "^1.2.0",
+    "pg": "^6.1.0",
+    "pg-promise": "^5.3.4",
+    "xml2js": "^0.4.17"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "keywords": [
-    "fail",
-    "lame",
-    "krajany",
-    "ale-aj-cely"
-  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ffrr/assignment.git"
+  },
   "author": "ffrr",
-  "license": "UNLICENSED",
-  "dependencies": {
-    "bluebird": "^3.4.6",
-    "fetch": "^1.1.0",
-    "jsonfile": "^2.4.0",
-    "lodash": "^4.16.4",
-    "xml2js": "^0.4.17"
-  }
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ffrr/assignment/issues"
+  },
+  "homepage": "https://github.com/ffrr/assignment#readme"
 }
