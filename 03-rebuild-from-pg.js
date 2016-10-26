@@ -13,7 +13,7 @@ let pool = new pg.Pool(config.get('db'));
 let previousLevel, parentVector = [], result, previousNode;
 
 const addNode = (row) => {
-  let path = row.path.split(' > '), currentLevel = path.length, name = _.last(path), parentName = path[path.length - 2];
+  let path = row.path.split(' > '), currentLevel = path.length, name = _.last(path);
 
   if(!result) {
     result = { name, size: row.length, children: [] };
@@ -21,7 +21,7 @@ const addNode = (row) => {
     previousLevel = 1;
     return;
   }
-  
+
   if(currentLevel - previousLevel == 1 ) {
     parentVector.push(previousNode);
   }
@@ -65,10 +65,3 @@ pool.connect()
         batch(client, pagesNeeded);
       });
   }).then(() => pool.end());
-
-
-
-
-// require('jsonfile').readFile('tmp/streamed.json', function(err, obj) {
-//
-// })
